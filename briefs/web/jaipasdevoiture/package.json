@@ -1,0 +1,27 @@
+{
+    "name": "simplon",
+    "version": "1.0.0",
+    "description": "Dépôt utilisé dans le cadre de ma formation Développeur.se Web et mobile JAVA 20/21 chez Simplon Nantes.",
+    "main": "index.js",
+    "scripts": {
+        "dev": "next",
+        "build": "next build",
+        "start": "next start"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vouvounshka/simplon.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/vouvounshka/simplon/issues"
+    },
+    "homepage": "https://github.com/vouvounshka/simplon#readme",
+    "dependencies": {
+        "next": "^9.5.5",
+        "react": "^16.14.0",
+        "react-dom": "^16.14.0"
+    }
+}
