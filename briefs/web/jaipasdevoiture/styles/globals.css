@@ -1,0 +1,64 @@
+@import url("./360/index.css");
+@import url("./768/index.css");
+@import url("./1024/index.css");
+@import url("./1440/index.css");
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#header {
+    grid-area: "header";
+    background-color: burlywood;
+}
+
+#navbar {
+    grid-area: "navbar";
+    background-color: chocolate;
+}
+
+#carroussel {
+    grid-area: "carroussel";
+    background-color: aqua;
+}
+
+#presentation {
+    grid-area: "presentation";
+    background-color: blueviolet;
+}
+
+#localization {
+    grid-area: "localization";
+    background-color: tomato;
+}
+
+#keys {
+    grid-area: "keys";
+    background-color: teal;
+}
+
+#reviews {
+    grid-area: "reviews";
+    background-color: steelblue;
+}
+
+#partners {
+    grid-area: "partners";
+    background-color: springgreen;
+}
+
+#contact {
+    grid-area: "contact";
+    background-color: thistle;
+}

@@ -1,0 +1,20 @@
+#navbar {
+    display: grid;
+    grid-template-columns: repeat(8, auto);
+}
+
+#navbar-reservation {}
+
+#navbar-vehicle {}
+
+#navbar-agencies {}
+
+#navbar-contact {}
+
+#navbar-qea {}
+
+#navbar-enterprise {}
+
+#navbar-covid {}
+
+#navbar-search {}

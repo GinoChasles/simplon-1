@@ -1,0 +1,10 @@
+@import url("header.css");
+@import url("navbar.css");
+@import url("carroussel.css");
+@media screen and (min-width:360px) {
+    main {
+        display: grid;
+        grid-template-areas: "header" "navbar" "carroussel" "presentation" "localization" "keys" "reviews" "partners" "contact";
+        grid-template-rows: auto;
+    }
+}

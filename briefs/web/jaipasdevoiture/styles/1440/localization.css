@@ -1,0 +1,29 @@
+#localization {
+    position: relative;
+    display: grid;
+    grid-template-areas: "loc-presentation loc-map" "loc-cities loc-map";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+#localization-cities {
+    grid-area: loc-cities;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+#localization-map {
+    position: relative;
+    grid-area: loc-map;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+#localization-map img {
+    width: 100%;
+}
+
+#localization-presentation {
+    grid-area: loc-presentation;
+}
