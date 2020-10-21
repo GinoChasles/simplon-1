@@ -113,7 +113,6 @@ public class Agency {
             client.vehicle = vehicle;
             vehicle.isAvailable = false;
             vehicle.client = client;
-            System.out.println("\nLocation acceptée");
             return true;
         }
     }

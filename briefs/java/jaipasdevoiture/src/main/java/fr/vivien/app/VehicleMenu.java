@@ -93,6 +93,7 @@ public class VehicleMenu extends Menu {
         switch (Integer.parseInt(scanner.nextLine())) {
             case 0:
                 vehicle.agency.checkin(vehicle, client);
+                System.out.println("\nLocation acceptée");
                 break;
             case 1:
                 this.checkin();
