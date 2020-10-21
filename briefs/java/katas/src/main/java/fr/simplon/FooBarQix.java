@@ -44,4 +44,8 @@ public class FooBarQix {
         String num = Integer.toString(number);
         return num.contains("7") ? "Qix" : num;
     }
+
+    public static String compute(int number) {
+
+    }
 }
