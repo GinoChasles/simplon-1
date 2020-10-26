@@ -9,6 +9,9 @@ import java.util.HashMap;
  */
 public class NumbersInWords {
 
+    /**
+     * Représentation en lettres de chiffres
+     */
     public static HashMap<String, String> numTranslator = new HashMap<String, String>() {
         {
             put("1", "one");
@@ -41,6 +44,10 @@ public class NumbersInWords {
         }
     };
 
+    /**
+     * Représentation des puissances de mille selon la positon dans l'index de
+     * l'ArrayList du bloc de centaine
+     */
     public static HashMap<Integer, String> numPosTranslator = new HashMap<Integer, String>() {
         {
             put(0, "");
@@ -54,13 +61,17 @@ public class NumbersInWords {
 
     }
 
+    /**
+     * Extrait chaque bloc de centaine dans un arrayList
+     * 
+     * @param number le nombre à extraire
+     * @return un ArrayList de chaque bloc de centaines
+     */
     public static ArrayList<String> extract(String number) {
         ArrayList<String> splited = new ArrayList<String>(Arrays.asList(number.replaceAll("[.,\s]", "").split("")));
 
         String sequenceOf3 = "";
         ArrayList<String> numArray = new ArrayList<String>();
-
-        int i = 0;
 
         do {
             int index = splited.size() - 1;
@@ -73,9 +84,16 @@ public class NumbersInWords {
             }
 
         } while (splited.size() != 0);
+
         return numArray;
     }
 
+    /**
+     * Extrait la sequence de bloc de centaine en un ArrayList
+     * 
+     * @param number le bloc à extraire
+     * @return un Array de chaque chiffre dnas le bloc de centaine
+     */
     public static String[] extractSequence(String number) {
         String[] arr = new String[] { "0", "0", "0" };
         String[] splited = number.split("");
@@ -90,18 +108,42 @@ public class NumbersInWords {
         return arr;
     }
 
+    /**
+     * Traduit une unité de chiffre en lettre
+     * 
+     * @param number le chiffre à traduire
+     * @return la traduction du chiffre en lettre
+     */
     public static String translateUnity(String number) {
         return numTranslator.get(number);
     }
 
+    /**
+     * Traduit une dizaine de chiffre en lettre
+     * 
+     * @param number le chiffre à traduire
+     * @return la traduction du chiffre en lettre
+     */
     public static String translateDecade(String number) {
         return numTranslator.get(Integer.toString(Integer.parseInt(number) * 10));
     }
 
+    /**
+     * Traduit une centaine de chiffre en lettre
+     * 
+     * @param number le chiffre à traduire
+     * @return la traduction du chiffre en lettre
+     */
     public static String translateHundreds(String number) {
         return translateUnity(number) + " hundred";
     }
 
+    /**
+     * Traduit un bloc de centaine
+     * 
+     * @param number le bloc à traduire
+     * @return la trduction du bloc
+     */
     public static String translateBlockOf3(String number) {
         String[] splited = number.split("");
         ArrayList<String> translated = new ArrayList<String>();
@@ -122,10 +164,22 @@ public class NumbersInWords {
         return String.join(" ", translated.toArray(new String[translated.size()]));
     }
 
+    /**
+     * Traduit la puissance de 1000 en lettres
+     * 
+     * @param index l'index qui déterminera la puissance de 1000
+     * @return la puissance de mille en lettres
+     */
     public static String getPowerOfThousand(int index) {
         return numPosTranslator.get(index);
     }
 
+    /**
+     * Traduit un nombre en lettres
+     * 
+     * @param number le nombre à traduire
+     * @return la traduction en lettres du chiffre
+     */
     public static String translate(String number) {
         ArrayList<String> extracted = extract(number);
         ArrayList<String> translated = new ArrayList<String>();
