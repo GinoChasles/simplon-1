@@ -55,7 +55,7 @@ public class NumbersInWords {
     }
 
     public static ArrayList<String> extract(String number) {
-        ArrayList<String> splited = new ArrayList<String>(Arrays.asList(number.split("")));
+        ArrayList<String> splited = new ArrayList<String>(Arrays.asList(number.replaceAll("[.,\s]", "").split("")));
 
         String sequenceOf3 = "";
         ArrayList<String> numArray = new ArrayList<String>();
