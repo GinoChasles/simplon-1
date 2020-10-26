@@ -33,6 +33,7 @@ class NumbersInWordsTest {
 
     @Test
     void translateUnityTest() {
+        assertEquals("", NumbersInWords.translateUnity("0"));
         assertEquals("one", NumbersInWords.translateUnity("1"));
         assertEquals("two", NumbersInWords.translateUnity("2"));
         assertEquals("three", NumbersInWords.translateUnity("3"));
@@ -46,6 +47,7 @@ class NumbersInWordsTest {
 
     @Test
     void translateDecadeTest() {
+        assertEquals("", NumbersInWords.translateDecade("0"));
         assertEquals("ten", NumbersInWords.translateDecade("1"));
         assertEquals("twenty", NumbersInWords.translateDecade("2"));
         assertEquals("thirty", NumbersInWords.translateDecade("3"));
@@ -59,6 +61,7 @@ class NumbersInWordsTest {
 
     @Test
     void translateHundredsTest() {
+        assertEquals("", NumbersInWords.translateHundreds("0"));
         assertEquals("one hundred", NumbersInWords.translateHundreds("1"));
         assertEquals("two hundred", NumbersInWords.translateHundreds("2"));
         assertEquals("three hundred", NumbersInWords.translateHundreds("3"));

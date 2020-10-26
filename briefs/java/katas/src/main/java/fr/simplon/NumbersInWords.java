@@ -115,7 +115,8 @@ public class NumbersInWords {
      * @return la traduction du chiffre en lettre
      */
     public static String translateUnity(String number) {
-        return numTranslator.get(number);
+        String res = numTranslator.get(number);
+        return res != null ? res : "";
     }
 
     /**
@@ -125,7 +126,8 @@ public class NumbersInWords {
      * @return la traduction du chiffre en lettre
      */
     public static String translateDecade(String number) {
-        return numTranslator.get(Integer.toString(Integer.parseInt(number) * 10));
+        String res = numTranslator.get(Integer.toString(Integer.parseInt(number) * 10));
+        return res != null ? res : "";
     }
 
     /**
@@ -135,7 +137,8 @@ public class NumbersInWords {
      * @return la traduction du chiffre en lettre
      */
     public static String translateHundreds(String number) {
-        return translateUnity(number) + " hundred";
+        String res = translateUnity(number);
+        return res != "" ? res + " hundred" : "";
     }
 
     /**
