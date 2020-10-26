@@ -1,5 +1,7 @@
 package fr.simplon;
 
+import java.util.ArrayList;
+
 public class FooBarQix {
 
     public static void main(String[] args) {
@@ -18,8 +20,17 @@ public class FooBarQix {
         return number % 7 == 0;
     }
 
-    public static String multipleOfThreeToFoo(int number) {
-        return isDivisiblePer3(number) ? "Foo" : Integer.toString(number);
+    public static int intToString(int number) {
+        switch (number) {
+            case 3:
+                return 3;
+            case 5:
+                return 5;
+            case 7:
+                return 7;
+            default:
+                return number;
+        }
     }
 
     public static String multipleOfFiveToBar(int number) {
@@ -45,7 +56,20 @@ public class FooBarQix {
         return num.contains("7") ? "Qix" : num;
     }
 
-    public static String compute(int number) {
+    public static String zeroToStar(int number) {
+        String num = Integer.toString(number);
+        return num.contains("0") ? "*" : num;
+    }
 
+    public static String conpute(String sequence) {
+        String[] arrSequence = sequence.split("");
+        ArrayList<String> newSequence = new ArrayList<String>();
+
+        for (String s : arrSequence) {
+            int i = Integer.parseInt(s);
+
+        }
+
+        return null;
     }
 }
