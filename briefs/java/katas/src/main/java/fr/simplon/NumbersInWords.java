@@ -24,15 +24,6 @@ public class NumbersInWords {
             put("8", "eight");
             put("9", "nine");
             put("10", "ten");
-            put("11", "eleven");
-            put("12", "twelve");
-            put("13", "thirteen");
-            put("14", "fourteen");
-            put("15", "fifteen");
-            put("16", "sixteen");
-            put("17", "seventeen");
-            put("18", "eighteen");
-            put("19", "nineteen");
             put("20", "twenty");
             put("30", "thirty");
             put("40", "fourty");
@@ -41,6 +32,20 @@ public class NumbersInWords {
             put("70", "seventy");
             put("80", "eighty");
             put("90", "ninety");
+        }
+    };
+
+    public static HashMap<String, String> elevenToNineteen = new HashMap<String, String>() {
+        {
+            put("ten one", "eleven");
+            put("ten two", "twelve");
+            put("ten three", "thirteen");
+            put("ten four", "fourteen");
+            put("ten five", "fifteen");
+            put("ten six", "sixteen");
+            put("ten seven", "seventeen");
+            put("ten eight", "eighteen");
+            put("ten nine", "nineteen");
         }
     };
 
@@ -56,10 +61,6 @@ public class NumbersInWords {
             put(3, "billion");
         }
     };
-
-    public static void main(String[] args) {
-
-    }
 
     /**
      * Extrait chaque bloc de centaine dans un arrayList
@@ -178,6 +179,19 @@ public class NumbersInWords {
     }
 
     /**
+     * Traduit les séquence incorrectes de type "ten one" en "eleven"
+     * 
+     * @param sequence la sequence où rempalcer les nuances de dizaine
+     * @return la séquence corrigée
+     */
+    public static String replaceTenToNineteen(String sequence) {
+        for (String k : elevenToNineteen.keySet()) {
+            sequence = sequence.replaceAll(k, elevenToNineteen.get(k));
+        }
+        return sequence;
+    }
+
+    /**
      * Traduit un nombre en lettres
      * 
      * @param number le nombre à traduire
@@ -194,6 +208,6 @@ public class NumbersInWords {
             i++;
         }
 
-        return String.join(" ", translated.toArray(new String[translated.size()])).trim();
+        return replaceTenToNineteen(String.join(" ", translated.toArray(new String[translated.size()])).trim());
     }
 }

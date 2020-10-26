@@ -90,7 +90,7 @@ class NumbersInWordsTest {
     @Test
     void translateTest() {
         assertEquals(
-                "nine hundred seventy six billion one hundred twenty three million four hundred fifty six thousand seven hundred eighty nine",
-                NumbersInWords.translate("976123456789"));
+                "nine hundred seventy six billion one hundred twenty three million four hundred fifty six thousand seven hundred nineteen",
+                NumbersInWords.translate("976123456719"));
     }
 }
