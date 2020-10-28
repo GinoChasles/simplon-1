@@ -1,12 +1,17 @@
 import React from 'react'
 
-export default function Review({ text, user, rating, link }) {
+import { Container, Row, Image, Col, Card } from 'react-bootstrap';
+
+export default function Review({ name, img, text, size }) {
     return (
-        <div class="review">
-            <div className="review-text">{text}</div>
-            <div className="review-user">{user}</div>
-            <div className="review-rating">{rating}</div>
-            <div className="review-link">{link}</div>
-        </div>
+        <Card>
+            <Card.Body>
+                <Card.Title>{name}</Card.Title>
+                <Image src={img} width={size} height={size} roundedCircle />
+                <Card.Text className="review-text">
+                    {text}
+                </Card.Text>
+            </Card.Body>
+        </Card >
     )
 }

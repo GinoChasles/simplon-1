@@ -136,7 +136,7 @@ public class Agency {
     }
 
     /**
-     * Returns a hashmap of the available vehicles in the agency
+     * Returns an ArrayList of the available vehicles in the agency
      * 
      * @return The available vehicles
      */
