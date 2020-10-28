@@ -12,7 +12,7 @@ public class NumbersInWords {
     /**
      * Représentation en lettres de chiffres
      */
-    public static HashMap<String, String> numTranslator = new HashMap<String, String>() {
+    private static HashMap<String, String> numTranslator = new HashMap<String, String>() {
         {
             put("1", "one");
             put("2", "two");
@@ -24,6 +24,7 @@ public class NumbersInWords {
             put("8", "eight");
             put("9", "nine");
             put("10", "ten");
+
             put("20", "twenty");
             put("30", "thirty");
             put("40", "fourty");
@@ -35,7 +36,7 @@ public class NumbersInWords {
         }
     };
 
-    public static HashMap<String, String> elevenToNineteen = new HashMap<String, String>() {
+    private static HashMap<String, String> elevenToNineteen = new HashMap<String, String>() {
         {
             put("ten one", "eleven");
             put("ten two", "twelve");
@@ -49,16 +50,49 @@ public class NumbersInWords {
         }
     };
 
+    private static HashMap<String, String> wordTranslator = new HashMap<String, String>() {
+        {
+            put("one", "1");
+            put("two", "2");
+            put("three", "3");
+            put("four", "4");
+            put("five", "5");
+            put("six", "6");
+            put("seven", "7");
+            put("eight", "8");
+            put("nine", "9");
+            put("ten", "10");
+            put("eleven", "11");
+            put("twelve", "12");
+            put("thirteen", "13");
+            put("fourteen", "14");
+            put("fifteen", "15");
+            put("sixteen", "16");
+            put("seventeen", "17");
+            put("eighteen", "18");
+            put("nineteen", "19");
+
+            put("twenty", "2");
+            put("thirty", "3");
+            put("fourty", "4");
+            put("fifty", "5");
+            put("sixty", "6");
+            put("seventy", "7");
+            put("eighty", "8");
+            put("ninety", "9");
+        }
+    };
     /**
      * Représentation des puissances de mille selon la positon dans l'index de
      * l'ArrayList du bloc de centaine
      */
-    public static HashMap<Integer, String> numPosTranslator = new HashMap<Integer, String>() {
+    private static HashMap<Integer, String> numPosTranslator = new HashMap<Integer, String>() {
         {
             put(0, "");
             put(1, "thousand");
             put(2, "million");
             put(3, "billion");
+            put(4, "trillion");
         }
     };
 
@@ -179,10 +213,10 @@ public class NumbersInWords {
     }
 
     /**
-     * Traduit la puissance de 1000 en lettres
+     * Traduit la puissance de 1000 en lettres via le HashMap numPosTranslator
      * 
      * @param index l'index qui déterminera la puissance de 1000
-     * @return la puissance de mille en lettres
+     * @return la puissance de mille en lettres ou null
      */
     public static String getPowerOfThousand(int index) {
         return numPosTranslator.get(index);
@@ -202,12 +236,12 @@ public class NumbersInWords {
     }
 
     /**
-     * Traduit un nombre en lettres
+     * Traduit un nombre en chiffres en lettres
      * 
      * @param number le nombre à traduire
-     * @return la traduction en lettres du chiffre
+     * @return la traduction en lettres
      */
-    public static String translate(String number) {
+    public static String numbersInWords(String number) {
         ArrayList<String> extracted = extract(number);
         ArrayList<String> translated = new ArrayList<String>();
 
@@ -219,5 +253,35 @@ public class NumbersInWords {
         }
 
         return replaceTenToNineteen(String.join(", ", translated.toArray(new String[translated.size()])).trim());
+    }
+
+    /**
+     * Traduit un mot en chiffre ou renvoie null via le hashMap wordTranslator
+     * 
+     * @param word le mot à traduire
+     * @return le mot traduit ou null
+     */
+    public static String wordInNumber(String word) {
+        return wordTranslator.get(word);
+    }
+
+    /**
+     * Traduit un nombre en lettres en chiffres
+     * 
+     * @param words le nombre à traduire
+     * @return la traduction en chiffres
+     */
+    public static String wordsInNumbers(String words) {
+        String[] splited = words.replace(",", "").split(" ");
+        ArrayList<String> sequence = new ArrayList<String>();
+        String translated;
+
+        for (String word : splited) {
+            translated = wordTranslator.get(word);
+            if (translated != null)
+                sequence.add(translated);
+        }
+
+        return String.join("", sequence.toArray(new String[sequence.size()]));
     }
 }

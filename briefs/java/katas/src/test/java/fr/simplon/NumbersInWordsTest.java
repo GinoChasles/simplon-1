@@ -89,9 +89,51 @@ class NumbersInWordsTest {
     }
 
     @Test
-    void translateTest() {
+    void numbersInWordsTest() {
         assertEquals(
                 "nine hundred and seventy six billion, one hundred and twenty three million, four hundred and fifty six thousand, seven hundred and nineteen",
-                NumbersInWords.translate("976123456719"));
+                NumbersInWords.numbersInWords("976123456719"));
+    }
+
+    @Test
+    void wordInNumberTest() {
+        assertEquals("1", NumbersInWords.wordInNumber("one"));
+        assertEquals("2", NumbersInWords.wordInNumber("two"));
+        assertEquals("3", NumbersInWords.wordInNumber("three"));
+        assertEquals("4", NumbersInWords.wordInNumber("four"));
+        assertEquals("5", NumbersInWords.wordInNumber("five"));
+        assertEquals("6", NumbersInWords.wordInNumber("six"));
+        assertEquals("7", NumbersInWords.wordInNumber("seven"));
+        assertEquals("8", NumbersInWords.wordInNumber("eight"));
+        assertEquals("9", NumbersInWords.wordInNumber("nine"));
+        assertEquals("10", NumbersInWords.wordInNumber("ten"));
+        assertEquals("11", NumbersInWords.wordInNumber("eleven"));
+        assertEquals("12", NumbersInWords.wordInNumber("twelve"));
+        assertEquals("13", NumbersInWords.wordInNumber("thirteen"));
+        assertEquals("14", NumbersInWords.wordInNumber("fourteen"));
+        assertEquals("15", NumbersInWords.wordInNumber("fifteen"));
+        assertEquals("16", NumbersInWords.wordInNumber("sixteen"));
+        assertEquals("17", NumbersInWords.wordInNumber("seventeen"));
+        assertEquals("18", NumbersInWords.wordInNumber("eighteen"));
+        assertEquals("19", NumbersInWords.wordInNumber("nineteen"));
+        assertEquals("2", NumbersInWords.wordInNumber("twenty"));
+        assertEquals("3", NumbersInWords.wordInNumber("thirty"));
+        assertEquals("4", NumbersInWords.wordInNumber("fourty"));
+        assertEquals("5", NumbersInWords.wordInNumber("fifty"));
+        assertEquals("6", NumbersInWords.wordInNumber("sixty"));
+        assertEquals("7", NumbersInWords.wordInNumber("seventy"));
+        assertEquals("8", NumbersInWords.wordInNumber("eighty"));
+        assertEquals("9", NumbersInWords.wordInNumber("ninety"));
+
+        assertEquals(null, NumbersInWords.wordInNumber("foo"));
+        assertEquals(null, NumbersInWords.wordInNumber(""));
+        assertEquals(null, NumbersInWords.wordInNumber(null));
+    }
+
+    @Test
+    void wordsInNumberTest() {
+        assertEquals("976123456719", NumbersInWords.wordsInNumbers(
+                "nine hundred and seventy six billion, one hundred and twenty three million, four hundred and fifty six thousand, seven hundred and nineteen"));
+
     }
 }
