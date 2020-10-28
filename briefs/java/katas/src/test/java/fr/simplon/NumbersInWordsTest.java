@@ -23,6 +23,7 @@ class NumbersInWordsTest {
         arr.add("789");
         arr.add("456");
         arr.add("123");
+
         assertEquals(arr, NumbersInWords.extract("123456789"));
     }
 
@@ -90,7 +91,7 @@ class NumbersInWordsTest {
     @Test
     void translateTest() {
         assertEquals(
-                "nine hundred seventy six billion one hundred twenty three million four hundred fifty six thousand seven hundred nineteen",
+                "nine hundred and seventy six billion, one hundred and twenty three million, four hundred and fifty six thousand, seven hundred and nineteen",
                 NumbersInWords.translate("976123456719"));
     }
 }

@@ -35,9 +35,6 @@ public class NumbersInWords {
         }
     };
 
-    /**
-     * Correction de traduction des dizaines
-     */
     public static HashMap<String, String> elevenToNineteen = new HashMap<String, String>() {
         {
             put("ten one", "eleven");
@@ -154,20 +151,30 @@ public class NumbersInWords {
     public static String translateBlockOf3(String number) {
         String[] splited = number.split("");
         ArrayList<String> translated = new ArrayList<String>();
+        String hundreds = "", decade = "", unity = "";
 
         for (int i = 0; i < splited.length; i++) {
             switch (i) {
                 case 0:
-                    translated.add(translateHundreds(splited[i]));
+                    hundreds = translateHundreds(splited[i]);
                     break;
                 case 1:
-                    translated.add(translateDecade(splited[i]));
+                    decade = translateDecade(splited[i]);
                     break;
                 case 2:
-                    translated.add(translateUnity(splited[i]));
+                    unity = translateUnity(splited[i]);
                     break;
             }
         }
+        translated.add(hundreds);
+
+        if (decade != "0" && unity != "0") {
+            translated.add("and");
+        }
+
+        translated.add(decade);
+        translated.add(unity);
+
         return String.join(" ", translated.toArray(new String[translated.size()]));
     }
 
@@ -211,6 +218,6 @@ public class NumbersInWords {
             i++;
         }
 
-        return replaceTenToNineteen(String.join(" ", translated.toArray(new String[translated.size()])).trim());
+        return replaceTenToNineteen(String.join(", ", translated.toArray(new String[translated.size()])).trim());
     }
 }
