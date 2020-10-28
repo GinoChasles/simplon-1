@@ -1,0 +1,12 @@
+.PreviewPanel {
+    height: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.PreviewSquare {
+    width: 100px;
+    height: 100Px;
+    flex-grow: 1;
+}

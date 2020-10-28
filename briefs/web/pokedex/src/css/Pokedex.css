@@ -1,0 +1,47 @@
+.Pokedex {
+    background-color: white;
+    overflow: hidden;
+    display: grid;
+    height: 100%;
+    box-shadow: 10px 10px 0#6e0000;
+}
+
+@media (min-width:720px) {
+    .Pokedex {
+        grid-template-areas: "up" "down";
+    }
+}
+
+#down {
+    grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width:720px) {
+    .Pokedex {
+        grid-template-areas: "up" "down";
+    }
+}
+
+#up {
+    grid-area: up;
+    height: 100%;
+}
+
+#down {
+    overflow: hidden;
+    grid-area: down;
+    height: 100%;
+}
+
+#right {
+    overflow: hidden;
+    height: 100%;
+    grid-area: right;
+}
+
+#left {
+    display: grid;
+    overflow: hidden;
+    height: 100%;
+    grid-area: left;
+}

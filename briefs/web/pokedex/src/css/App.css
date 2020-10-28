@@ -1,0 +1,36 @@
+@import url("./Pokedex.css");
+@import url("./Types.css");
+@import url("./Preview/Index.css");
+@import url("./ProfileTitle.css");
+@import url("./ProfileMain.css");
+@import url("./FetchForm.css");
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+* {
+    font-family: "Press Start 2P";
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html,
+#root {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+html {}
+
+#root {
+    padding: 20px;
+    background-color: rgb(211, 102, 0);
+}
+
+.loadingImg {
+    display: block;
+    margin: auto;
+    padding: auto;
+    width: 100%;
+    height: 100%;
+}

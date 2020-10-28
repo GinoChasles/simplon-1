@@ -1,0 +1,117 @@
+@keyframes moveBg {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100px -100px;
+    }
+}
+
+@keyframes moveName {
+    from {
+        visibility: hidden;
+        left: -100%;
+    }
+    to {
+        visibility: visible;
+        left: 0px;
+        width: 98%;
+    }
+}
+
+.PreviewSquare {
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    background-image: url("../../img/preview/bg.png");
+}
+
+.PreviewSquare:hover {
+    animation-name: moveBg;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    animation-duration: 10s;
+}
+
+.PreviewSquare:hover .PreviewImg {
+    background-size: 150%;
+}
+
+.PreviewSquare:hover .PreviewName {
+    animation-name: moveName;
+    animation-fill-mode: forwards;
+    animation-duration: .25s;
+}
+
+.PreviewSquare:hover.dark {
+    background-image: url("../../img/preview/dark.png");
+}
+
+.PreviewSquare:hover.grass {
+    background-image: url("../../img/preview/grass-light.png");
+}
+
+.PreviewSquare:hover.poison {
+    background-image: url("../../img/preview/poison-light.png");
+}
+
+.PreviewSquare:hover.water {
+    background-image: url("../../img/preview/water-light.png");
+}
+
+.PreviewSquare:hover.ice {
+    background-image: url("../../img/preview/ice-light.png");
+}
+
+.PreviewSquare:hover.ghost {
+    background-image: url("../../img/preview/ghost-light.png");
+}
+
+.PreviewSquare:hover.bug {
+    background-image: url("../../img/preview/bug-light.png");
+}
+
+.PreviewSquare:hover.normal {
+    background-image: url("../../img/preview/normal-light.png");
+}
+
+.PreviewSquare:hover.flying {
+    background-image: url("../../img/preview/flying-light.png");
+}
+
+.PreviewSquare:hover.electric {
+    background-image: url("../../img/preview/electric-light.png");
+}
+
+.PreviewSquare:hover.ground {
+    background-image: url("../../img/preview/ground-light.png");
+}
+
+.PreviewSquare:hover.fairy {
+    background-image: url("../../img/preview/fairy-light.png");
+}
+
+.PreviewSquare:hover.psychic {
+    background-image: url("../../img/preview/psychic-light.png");
+}
+
+.PreviewSquare:hover.steel {
+    background-image: url("../../img/preview/steel-light.png");
+}
+
+.PreviewSquare:hover.rock {
+    background-image: url("../../img/preview/rock-light.png");
+}
+
+.PreviewSquare:hover.dragon {
+    background-image: url("../../img/preview/dragon-light.png");
+}
+
+.PreviewSquare:hover.fire {
+    background-image: url("../../img/preview/fire-light.png");
+}
+
+.PreviewSquare:hover.fighting {
+    background-image: url("../../img/preview/fighting-light.png");
+}

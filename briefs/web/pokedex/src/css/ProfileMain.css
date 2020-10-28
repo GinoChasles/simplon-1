@@ -1,0 +1,60 @@
+.profile {
+    position: relative;
+    padding: 10px;
+    height: 100%;
+    overflow-y: scroll;
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.profile.on {
+    animation-name: bgSlideIn;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+}
+
+.profile.off {
+    animation-name: bgSlideOut;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+}
+
+@keyframes bgSlideIn {
+    from {
+        background-position: 300%;
+    }
+    to {
+        background-position: center;
+    }
+}
+
+@keyframes bgSlideOut {
+    from {
+        background-position: 300%;
+    }
+    to {
+        background-position: center;
+    }
+}
+
+.inline-description {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 10px;
+    padding: 10px;
+}
+
+.inline-description .key {
+    font-size: 1em;
+}
+
+.inline-description .value {
+    text-align: right;
+    font-size: 1em;
+}
+
+.description {
+    margin-left: 10px;
+    padding: 10px;
+}

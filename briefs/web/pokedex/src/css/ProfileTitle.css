@@ -1,0 +1,51 @@
+.header {
+    z-index: 0;
+    position: relative;
+    color: white;
+    width: 100%;
+    min-height: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: rgb(0, 136, 255);
+    justify-content: center;
+    align-items: center;
+}
+
+.header.on .name {
+    animation-name: slideInHeader;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+}
+
+.header.off .name {
+    animation-name: slideOuInHeader;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+}
+
+.name {
+    position: absolute;
+    text-align: left;
+    font-size: 1.5em;
+}
+
+@keyframes slideInHeader {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 5%;
+    }
+}
+
+@keyframes slideOuInHeader {
+    to {
+        left: 10%;
+    }
+    50% {
+        left: -100%;
+    }
+    to {
+        left: 5%;
+    }
+}
