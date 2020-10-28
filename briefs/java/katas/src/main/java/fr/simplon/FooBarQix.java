@@ -20,56 +20,65 @@ public class FooBarQix {
         return number % 7 == 0;
     }
 
-    public static int intToString(int number) {
+    public static boolean isDivisible(int number) {
+        return isDivisiblePer3(number) || isDivisiblePer5(number) || isDivisiblePer7(number);
+    }
+
+    public static String convertDivisible(int number) {
+        if (!isDivisible(number))
+            return null;
+
+        String resp = "";
+
+        if (isDivisiblePer3(number))
+            resp += "Foo";
+        if (isDivisiblePer5(number))
+            resp += "Bar";
+        if (isDivisiblePer7(number))
+            resp += "Qix";
+        return resp;
+    }
+
+    public static String convertNumber(int number) {
         switch (number) {
             case 3:
-                return 3;
+                return "Foo";
             case 5:
-                return 5;
+                return "Bar";
             case 7:
-                return 7;
+                return "Qix";
             default:
-                return number;
+                return null;
         }
     }
 
-    public static String multipleOfFiveToBar(int number) {
-        return isDivisiblePer5(number) ? "Bar" : Integer.toString(number);
-    }
-
-    public static String multipleOfSevenToQix(int number) {
-        return isDivisiblePer7(number) ? "Qix" : Integer.toString(number);
-    }
-
-    public static String threeToFoo(int number) {
-        String num = Integer.toString(number);
-        return num.contains("3") ? "Foo" : num;
-    }
-
-    public static String fiveToBar(int number) {
-        String num = Integer.toString(number);
-        return num.contains("5") ? "Bar" : num;
-    }
-
-    public static String sevenToQix(int number) {
-        String num = Integer.toString(number);
-        return num.contains("7") ? "Qix" : num;
-    }
-
-    public static String zeroToStar(int number) {
-        String num = Integer.toString(number);
-        return num.contains("0") ? "*" : num;
-    }
-
-    public static String conpute(String sequence) {
+    public static String compute(String sequence) {
         String[] arrSequence = sequence.split("");
+
         ArrayList<String> newSequence = new ArrayList<String>();
 
-        for (String s : arrSequence) {
-            int i = Integer.parseInt(s);
+        int intSeq = Integer.parseInt(sequence);
 
+        String convertedNum;
+
+        boolean isDivisible = isDivisible(intSeq);
+
+        if (isDivisible)
+            newSequence.add(convertDivisible(intSeq));
+
+        for (String str : arrSequence) {
+
+            convertedNum = convertNumber(Integer.parseInt(str));
+
+            if (convertedNum != null)
+                newSequence.add(convertedNum);
+            else if ("0".equals(str))
+                newSequence.add("*");
+            else if (!isDivisible)
+                newSequence.add(str);
         }
 
-        return null;
+        return String.join("", newSequence.toArray(new String[newSequence.size()]));
     }
+
 }

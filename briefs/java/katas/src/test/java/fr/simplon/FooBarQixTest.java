@@ -27,46 +27,48 @@ public class FooBarQixTest {
     }
 
     @Test
-    public void testMultipleOfThreeToFoo() {
-        /*
-         * assertEquals("Foo", FooBarQix.multipleOfThreeToFoo(3)); assertEquals(1,
-         * Integer.parseInt(FooBarQix.multipleOfThreeToFoo(1)));
-         */ }
+    public void testConvertDivisible() {
+        assertEquals("Foo", FooBarQix.convertDivisible(3));
+        assertEquals("Bar", FooBarQix.convertDivisible(5));
+        assertEquals("Qix", FooBarQix.convertDivisible(7));
 
-    @Test
-    public void testMultipleOfFiveToBar() {
-        assertEquals("Bar", FooBarQix.multipleOfFiveToBar(5));
-        assertEquals("8", FooBarQix.multipleOfFiveToBar(8));
+        assertEquals(null, FooBarQix.convertDivisible(8));
+
+        assertEquals("FooBar", FooBarQix.convertDivisible(15));
+        assertEquals("FooQix", FooBarQix.convertDivisible(21));
+        assertEquals("BarQix", FooBarQix.convertDivisible(35));
+        assertEquals("FooBarQix", FooBarQix.convertDivisible(105));
     }
 
     @Test
-    public void testMultipleOfSevenToQix() {
-        assertEquals("Qix", FooBarQix.multipleOfSevenToQix(7));
-        assertEquals("2", FooBarQix.multipleOfSevenToQix(2));
+    public void testConvertNumber() {
+        assertEquals("Foo", FooBarQix.convertNumber(3));
+        assertEquals("Bar", FooBarQix.convertNumber(5));
+        assertEquals("Qix", FooBarQix.convertNumber(7));
+        assertEquals(null, FooBarQix.convertNumber(8));
     }
 
     @Test
-    public void testThreeToFoo() {
-        assertEquals("Foo", FooBarQix.threeToFoo(3));
-        assertEquals("2", FooBarQix.threeToFoo(2));
-    }
+    public void testCompute() {
+        assertEquals("Foo", FooBarQix.compute("6"));
+        assertEquals("FooFoo", FooBarQix.compute("3"));
 
-    @Test
-    public void testFiveToBar() {
-        assertEquals("Bar", FooBarQix.fiveToBar(5));
-        assertEquals("2", FooBarQix.fiveToBar(2));
-    }
+        assertEquals("Bar*", FooBarQix.compute("10"));
+        assertEquals("BarBar", FooBarQix.compute("5"));
 
-    @Test
-    public void testSevenToQix() {
-        assertEquals("Qix", FooBarQix.sevenToQix(7));
-        assertEquals("2", FooBarQix.sevenToQix(2));
-    }
+        assertEquals("Qix", FooBarQix.compute("14"));
+        assertEquals("QixQix", FooBarQix.compute("7"));
 
-    @Test
-    public void testZeroToStar() {
-        assertEquals("*", FooBarQix.sevenToQix(0));
-        assertEquals("2", FooBarQix.sevenToQix(2));
+        assertEquals("FooBarQix*Bar", FooBarQix.compute("105"));
+
+        assertEquals("88", FooBarQix.compute("88"));
+
+        assertEquals("FooBarQixQixFooBar", FooBarQix.compute("735"));
+
+        assertEquals("QixFooBar8", FooBarQix.compute("7358"));
+        assertEquals("BarQixFooBarBar", FooBarQix.compute("87355"));
+
+        assertEquals("BarQix*FooBarBar", FooBarQix.compute("870355"));
     }
 
 }

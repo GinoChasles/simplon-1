@@ -35,6 +35,9 @@ public class NumbersInWords {
         }
     };
 
+    /**
+     * Correction de traduction des dizaines
+     */
     public static HashMap<String, String> elevenToNineteen = new HashMap<String, String>() {
         {
             put("ten one", "eleven");
